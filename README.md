@@ -68,6 +68,16 @@ public static void enviarYrecibir(List<String> lista) throws IOException{
     }
 ```
 
+## Ejecución
+
+![ejecución](./imgs/exec.png)
+
+El log del servidor:
+
+```
+[LOG] 24/11/2026-10:29:34 127.0.0.1:34586 - mensaje recibido: Anxo Vázquez Lorenzo 2 DAM 
+```
+
 ## Bibliografía y uso de IA
 
 - GeeksforGeeks - Día y Hora
