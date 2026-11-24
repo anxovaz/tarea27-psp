@@ -30,7 +30,46 @@ public static void main(String[] args) throws IOException {
     }
 ```
 
+## Cliente
+
+El cliente manda 5 palabras en una única cadena de texto separadas por espacios y reintenta la conexión la cantidad de veces que vengan definidas en la constante `MAX_INTENTOS`. Esta clase tiene dos métodos; un `main` que pide palabras y las mete en una lista que se la pasa al segundo método (`enviarYrecibir`) que envía las palabras de la lista separadas por un espacio al servidor y espera a la respuesta para imprimirla.
+
+```java
+public static void enviarYrecibir(List<String> lista) throws IOException{
+        String envio = ""; //el texto que se va a enviar -> palabra1 palabra2 palabra3 palabra4 palabra5
+        try(DatagramSocket socket = new DatagramSocket()) {
+            socket.setSoTimeout(TIMEOUT);
+            InetAddress servidor = InetAddress.getByName("localhost");
+
+            for (String palabra : lista) {
+                envio = envio + palabra + " ";
+            }
+            byte[] datos = envio.getBytes(StandardCharsets.UTF_8);
+
+            //ENVÍO
+            socket.send(new DatagramPacket(datos, datos.length, servidor, Servidor.PUERTO));
+            byte[] buffer = new byte[BUFFER_TAMANHO];
+            DatagramPacket respuesta = new DatagramPacket(buffer, buffer.length);
+
+            //RESPUESTA
+            for(int i =1; i<=MAX_INTENTOS;i++) { //realiza los intentos
+                try {
+                    socket.receive(respuesta);
+                    System.out.println(new String(buffer, 0, respuesta.getLength(), StandardCharsets.UTF_8));
+                    break; //sale del bucle una vez recibida la respuesta
+                } catch (SocketTimeoutException e) {
+                    System.out.println("Sin respuesta: " + e.getMessage());
+                    if(i==MAX_INTENTOS){
+                        System.out.println("Máximo de intentos superados");
+                    }
+                }
+            }
+        }
+    }
+```
+
 ## Bibliografía y uso de IA
 
 - GeeksforGeeks - Día y Hora
+
   https://www.geeksforgeeks.org/java/localtime-gethour-method-in-java-with-examples/
