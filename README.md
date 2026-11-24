@@ -74,15 +74,15 @@ public static void enviarYrecibir(List<String> lista) throws IOException{
 
 El log del servidor:
 
+```
+[LOG] 24/11/2026-10:29:34 127.0.0.1:34586 - mensaje recibido: Anxo Vázquez Lorenzo 2 DAM 
+```
+
 Si el servidor está apagado:
 
 > Hay una espera de 2 segundos entre mensajes de `timeout`
 
 ![servidor-apagado](./imgs/apagado.png)
-
-```
-[LOG] 24/11/2026-10:29:34 127.0.0.1:34586 - mensaje recibido: Anxo Vázquez Lorenzo 2 DAM 
-```
 
 ## Bibliografía y uso de IA
 
