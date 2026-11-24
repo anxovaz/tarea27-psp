@@ -10,7 +10,7 @@
 
 ## Servidor
 
-El servidor consta de un método `main` que espera a recibir datos de un cliente en un bucle infinito, una vez recibe un dato de un cliente primero lo convierte a `String` e imprime un `LOG` en el servidor con la fecha, hora, IP, puerto de cpliente y el mensaje completo, después usando el método `getPalabraLarga()` secciona la palabra por espacios y se devuelve la palabra más larga encontrada, por último se envía al cliente la palabra más larga con su longitud.
+El servidor consta de un método `main` que espera a recibir datos de un cliente en un bucle infinito, una vez recibe un dato de un cliente primero lo convierte a `String` e imprime un `LOG` en el servidor con la fecha, hora, IP, puerto de cliente y el mensaje completo, después usando el método `getPalabraLarga()` secciona la palabra por espacios y se devuelve la palabra más larga encontrada, por último se envía al cliente la palabra más larga con su longitud.
 
 ```java
 public static void main(String[] args) throws IOException {
@@ -83,3 +83,9 @@ El log del servidor:
 - GeeksforGeeks - Día y Hora
 
   https://www.geeksforgeeks.org/java/localtime-gethour-method-in-java-with-examples/
+
+- Oracle Documentación - DatagramSocket
+
+  https://docs.oracle.com/javase/8/docs/api/java/net/DatagramSocket.html
+
+> No he necesitado IA para esta tarea
